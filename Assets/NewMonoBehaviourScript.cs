@@ -10,7 +10,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {sssg
-        
+    {
+     Debug.Log("67");   
     }
 }
