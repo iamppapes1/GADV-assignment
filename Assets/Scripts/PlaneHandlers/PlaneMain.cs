@@ -26,6 +26,7 @@ public class PlaneMain : MonoBehaviour
         if (type == "Damage")
         {
             _damage += value;
+            Debug.Log($"Damage is now at {_damage}");
         }
     }
 
