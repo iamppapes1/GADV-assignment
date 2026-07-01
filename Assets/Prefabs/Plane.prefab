@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2799199163732935639}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,8 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248dc2adaec45c043bc3b5bc680d5715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Plane
-  _health: 50
-  _damage: 10
 --- !u!1 &6252863281130973823
 GameObject:
   m_ObjectHideFlags: 0
