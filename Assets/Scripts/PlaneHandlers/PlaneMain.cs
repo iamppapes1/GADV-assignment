@@ -3,15 +3,15 @@ using UnityEngine;
 public class PlaneMain : MonoBehaviour
 {
     // stats
-    [SerializeField] private float _damage;
-    private float _health = 100;
+    private float _damage = 10f;
+    private float _health = 100f;
 
     void Awake()
     {
         Debug.Log($"Health: {_health}, Damage {_damage}");
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         _health -= damage;
         Debug.Log(_health);
@@ -21,8 +21,16 @@ public class PlaneMain : MonoBehaviour
         }
     }
 
-    public void Upgrade(int value)
+    public void Upgrade(string type, float value)
     {
-        
+        if (type == "Damage")
+        {
+            _damage += value;
+        }
+    }
+
+    public float GetDamage()
+    {
+        return _damage;
     }
 }
