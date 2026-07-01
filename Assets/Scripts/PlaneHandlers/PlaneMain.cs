@@ -28,4 +28,9 @@ public class PlaneMain : MonoBehaviour
             _damage += value;
         }
     }
+
+    public float GetDamage()
+    {
+        return _damage;
+    }
 }
