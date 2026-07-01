@@ -22,6 +22,11 @@ public class EnemyMain : MonoBehaviour
         }
     }
 
+    public float GetDamage()
+    {
+        return _damage;
+    }
+
     void OnDeath()
     {
         int rng = Random.Range(1, buffs.Length);

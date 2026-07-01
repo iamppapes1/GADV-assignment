@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2426608294859053149}
   - component: {fileID: 8721997993205330119}
   - component: {fileID: 9048720262493546813}
-  - component: {fileID: 3618777373148830143}
+  - component: {fileID: -6809777852608643166}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -30,11 +30,11 @@ Transform:
   m_GameObject: {fileID: 459603972544558456}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4514576393235441489}
+  - {fileID: 9195807512991076536}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4742572576274511446
@@ -183,3 +183,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMain
   buffs:
   - {fileID: 4880667047577749465, guid: 5f7ac3b1ca86e924cb6b078c352c5de5, type: 3}
+--- !u!114 &-6809777852608643166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459603972544558456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd1d5b92b94b3544facd24c3f1c5d85d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shoot
+  Bullet: {fileID: 8516601440055960331, guid: cd1c6fa889f167e418947c81af906692, type: 3}
+  Barrel: {fileID: 6155156251769414424}
+--- !u!1 &6155156251769414424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9195807512991076536}
+  m_Layer: 0
+  m_Name: Barrel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9195807512991076536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6155156251769414424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 794069791907910695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
