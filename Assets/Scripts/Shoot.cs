@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.Rendering;
+
 public class Shoot : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
