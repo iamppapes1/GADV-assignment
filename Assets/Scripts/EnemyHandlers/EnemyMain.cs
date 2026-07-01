@@ -20,4 +20,9 @@ public class EnemyMain : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float GetDamage()
+    {
+        return _damage;
+    }
 }

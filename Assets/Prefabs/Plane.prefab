@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
   Bullet: {fileID: 7848289543201321504, guid: 448f7601197ac7943862794b63013adc, type: 3}
+  Barrel: {fileID: 6252863281130973823}
 --- !u!1 &6252863281130973823
 GameObject:
   m_ObjectHideFlags: 0

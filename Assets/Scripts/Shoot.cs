@@ -1,17 +1,26 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SocialPlatforms;
-using UnityEngine.Rendering;
 public class Shoot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject Bullet;
-    public GameObject _barrel;
-    private PlaneMain plane;
+    public GameObject Barrel;
+    private PlaneMain _plane;
+    private EnemyMain _enemy;
+
+    private string emitter;
 
     void Awake()
     {
-        plane = gameObject.GetComponent<PlaneMain>();
+        if (gameObject.CompareTag("Player"))
+        {
+            _plane = gameObject.GetComponent<PlaneMain>();
+            emitter = "Player";
+        }
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            _enemy = gameObject.GetComponent<EnemyMain>();
+            emitter = "Enemy";
+        }
     }
     void Start()
     {   
@@ -19,18 +28,36 @@ public class Shoot : MonoBehaviour
     }
     IEnumerator Fire()
     {   
-        while (true)
-        {   
-            Debug.Log("Shoot");
-            GameObject clone = Instantiate(
-                Bullet,
-                _barrel.transform
-            );
-
-            Bullet bullet = clone.GetComponent<Bullet>();
-            bullet.Init(plane.GetDamage());
-            yield return new WaitForSeconds(1f);
+        if (emitter == "Player")
+        {
+            while (true)
+            {   
+                //Debug.Log("Shoot");
+                GameObject clone = Instantiate(
+                    Bullet,
+                    Barrel.transform
+                );
+                clone.transform.parent = null;
+                Bullet bullet = clone.GetComponent<Bullet>();
+                bullet.Init(_plane.GetDamage());
+                yield return new WaitForSeconds(0.5f);
+            }
         }
-        
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            while (true)
+            {   
+                Debug.Log("Shoot");
+                Debug.Log(Barrel.transform.position + " enemy barrel");
+                GameObject clone = Instantiate(
+                    Bullet,
+                    Barrel.transform
+                );
+                clone.transform.parent = null;
+                EnemyBullet bullet = clone.GetComponent<EnemyBullet>();
+                bullet.Init(_enemy.GetDamage());
+                yield return new WaitForSeconds(1f);
+            }
+        }
     }
 }
