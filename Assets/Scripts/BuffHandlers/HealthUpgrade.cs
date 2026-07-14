@@ -2,9 +2,9 @@ using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
 
-public class DamageBuffGiver : MonoBehaviour
+public class HealthUpgrade : MonoBehaviour
 {
-    private float _damageBuff = 10;
+    private float _value = 10;
     private Rigidbody2D _rb;
 
     void Awake()
@@ -19,7 +19,7 @@ public class DamageBuffGiver : MonoBehaviour
 
     public void Init(float BuffValue)
     {
-        _damageBuff = BuffValue;
+        _value = BuffValue;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +28,7 @@ public class DamageBuffGiver : MonoBehaviour
         {
             Debug.Log("Hit player");
             PlaneMain plane = other.GetComponent<PlaneMain>();
-            plane.Upgrade("Damage", _damageBuff);
+            plane.Upgrade("Health", _value);
             Destroy(gameObject);
         }
 
