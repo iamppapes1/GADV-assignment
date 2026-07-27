@@ -3,9 +3,11 @@ using UnityEngine;
 public class PlaneMain : MonoBehaviour
 {
     // stats
-    private float _damage = 10f;
-    private float _maxhealth = 100f;
-    private float _health = 0f;
+    [SerializeField] public float _damage = 10f;
+    [SerializeField] public float _firerate = 0.5f;
+    [SerializeField] private float _maxhealth = 100f;
+    [SerializeField] public int _bullets = 1;
+    [SerializeField] private float _health = 0f;
 
     void Awake()
     {
@@ -41,10 +43,10 @@ public class PlaneMain : MonoBehaviour
             _maxhealth += value;
             Debug.Log($"health is now at {_maxhealth}");
         }
-    }
-
-    public float GetDamage()
-    {
-        return _damage;
+        else if (type == "Firerate")
+        {
+            _firerate *= 1 - value;
+            Debug.Log($"Firerate is now at {_firerate}");
+        }
     }
 }

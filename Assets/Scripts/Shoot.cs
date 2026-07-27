@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour
 {
-    public GameObject Bullet;
-    public GameObject Barrel;
+    private GameObject[] _bullet;
+    [SerializeField] private GameObject _enemyBullet;
+    public GameObject _barrel;
     private PlaneMain _plane;
     private EnemyMain _enemy;
 
@@ -12,16 +13,7 @@ public class Shoot : MonoBehaviour
 
     void Awake()
     {
-        if (gameObject.CompareTag("Player"))
-        {
-            _plane = gameObject.GetComponent<PlaneMain>();
-            emitter = "Player";
-        }
-        else if (gameObject.CompareTag("Enemy"))
-        {
-            _enemy = gameObject.GetComponent<EnemyMain>();
-            emitter = "Enemy";
-        }
+        _bullet = Resources.LoadAll<GameObject>("Prefabs/Bullets/Player");
     }
     void Start()
     {   
@@ -29,35 +21,44 @@ public class Shoot : MonoBehaviour
     }
     IEnumerator Fire()
     {   
-        if (emitter == "Player")
+        if (gameObject.CompareTag("Player"))
         {
+            _plane = gameObject.GetComponent<PlaneMain>();
             while (true)
             {   
                 //Debug.Log("Shoot");
+
+                Debug.Log(_bullet);
+
                 GameObject clone = Instantiate(
-                    Bullet,
-                    Barrel.transform
+                    _bullet[_plane._bullets - 1],
+                    _barrel.transform
                 );
                 clone.transform.parent = null;
-                Bullet bullet = clone.GetComponent<Bullet>();
-                bullet.Init(_plane.GetDamage());
-                yield return new WaitForSeconds(0.5f);
+
+                foreach (Bullet bullet in clone.GetComponentsInChildren<Bullet>())
+                {
+                     bullet.Init(_plane._damage);
+                }
+
+                yield return new WaitForSeconds(_plane._firerate);
             }
         }
         else if (gameObject.CompareTag("Enemy"))
-        {
+        {   
+            _enemy = gameObject.GetComponent<EnemyMain>();
             while (true)
             {   
                 Debug.Log("Shoot");
-                Debug.Log(Barrel.transform.position + " enemy barrel");
+                Debug.Log(_barrel.transform.position + " enemy barrel");
                 GameObject clone = Instantiate(
-                    Bullet,
-                    Barrel.transform
+                    _enemyBullet,
+                    _barrel.transform
                 );
                 clone.transform.parent = null;
                 EnemyBullet bullet = clone.GetComponent<EnemyBullet>();
                 bullet.Init(_enemy.GetDamage());
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(5f);
             }
         }
     }

@@ -39,7 +39,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4742572576274511446
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -96,6 +96,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!61 &2426608294859053149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1d5b92b94b3544facd24c3f1c5d85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  Bullet: {fileID: 8516601440055960331, guid: cd1c6fa889f167e418947c81af906692, type: 3}
-  Barrel: {fileID: 6155156251769414424}
+  _enemyBullet: {fileID: 8516601440055960331, guid: cd1c6fa889f167e418947c81af906692, type: 3}
+  _barrel: {fileID: 6155156251769414424}
 --- !u!1 &6155156251769414424
 GameObject:
   m_ObjectHideFlags: 0
