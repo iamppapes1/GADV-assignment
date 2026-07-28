@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class PlaneBullet : MonoBehaviour
 {
     private float _damage = 10;
     private Rigidbody2D _rb;
@@ -25,8 +25,8 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Hit enemy");
-            EnemyMain enemy = other.GetComponent<EnemyMain>();
-            enemy.TakeDamage(_damage);
+            Health enemyHealth = other.GetComponent<Health>();
+            enemyHealth.Damage(_damage);
             Destroy(gameObject);
         }
     }

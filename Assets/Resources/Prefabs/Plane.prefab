@@ -13,8 +13,12 @@ GameObject:
   - component: {fileID: 6203396529225554827}
   - component: {fileID: 7368274042002599027}
   - component: {fileID: 4826858801285344851}
-  - component: {fileID: 2799199163732935639}
-  - component: {fileID: -4029038122974387049}
+  - component: {fileID: 7722780934556151001}
+  - component: {fileID: 5654871992317093045}
+  - component: {fileID: 3031586415587804058}
+  - component: {fileID: 3823018023637287271}
+  - component: {fileID: 5782758639303930359}
+  - component: {fileID: 7887119266008906953}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Player
@@ -40,7 +44,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8611177682570758500
 SpriteRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,6 +101,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+  m_BlendShapeWeights: []
 --- !u!50 &6203396529225554827
 Rigidbody2D:
   serializedVersion: 5
@@ -183,7 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlaneControler
   speed: 5
---- !u!114 &2799199163732935639
+--- !u!114 &7722780934556151001
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,23 +197,74 @@ MonoBehaviour:
   m_GameObject: {fileID: 4741909749705283782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 248dc2adaec45c043bc3b5bc680d5715, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d27ce9c31c5cfd4c9909178443cfe61, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plane
---- !u!114 &-4029038122974387049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4741909749705283782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1d5b92b94b3544facd24c3f1c5d85d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  Bullet: {fileID: 7848289543201321504, guid: 448f7601197ac7943862794b63013adc, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::PlaneShoot
   _barrel: {fileID: 6252863281130973823}
+--- !u!114 &5654871992317093045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741909749705283782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116d92cc3e8f7cf4c969b6634535635f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Firerate
+  _firerate: 0.5
+--- !u!114 &3031586415587804058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741909749705283782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d919d8ac6d19fb44985e02d57df99dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletCount
+  _bullets: 1
+--- !u!114 &3823018023637287271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741909749705283782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2742e757601be349968167c023c2a7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  _maxHealth: 100
+--- !u!114 &5782758639303930359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741909749705283782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f2bba41a1836b498c15c31a41ad887, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Damage
+  _damage: 10
+--- !u!114 &7887119266008906953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741909749705283782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879be705cbec28749969b50fafd78d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Death
 --- !u!1 &6252863281130973823
 GameObject:
   m_ObjectHideFlags: 0

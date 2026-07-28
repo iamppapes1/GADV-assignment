@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HealthUpgrade : MonoBehaviour
 {
-    private float _value = 10;
     private Rigidbody2D _rb;
 
     void Awake()
@@ -17,18 +16,12 @@ public class HealthUpgrade : MonoBehaviour
         _rb.AddForce(Vector2.down * 10);
     }
 
-    public void Init(float BuffValue)
-    {
-        _value = BuffValue;
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit player");
-            PlaneMain plane = other.GetComponent<PlaneMain>();
-            plane.Upgrade("Health", _value);
+            other.GetComponent<Health>().Upgrade();
             Destroy(gameObject);
         }
 

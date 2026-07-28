@@ -24,9 +24,8 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit player");
-            PlaneMain plane = other.GetComponent<PlaneMain>();
-            plane.TakeDamage(_damage);
+            Debug.Log($"Hit player {other}");
+            other.GetComponent<Health>().Damage(_damage);
             Destroy(gameObject);
         }
         

@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &278028711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6155156251769414424, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
+  m_PrefabInstance: {fileID: 4365342749491794215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &329934861
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,11 +556,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.405135, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1357627352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6252863281130973823, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
-  m_PrefabInstance: {fileID: 5322311638535677279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378051429
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +743,18 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 794069791907910695, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58716
+      objectReference: {fileID: 0}
+    - target: {fileID: 794069791907910695, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.58716
+      objectReference: {fileID: 0}
+    - target: {fileID: 794069791907910695, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.58716
+      objectReference: {fileID: 0}
+    - target: {fileID: 794069791907910695, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -782,6 +794,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 794069791907910695, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9048720262493546813, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
       propertyPath: buffs.Array.size
       value: 1
@@ -799,17 +815,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4029038122974387049, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
-      propertyPath: Barrel
-      value: 
-      objectReference: {fileID: 1357627352}
+    - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.50376654
+      objectReference: {fileID: 0}
+    - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.72615
+      objectReference: {fileID: 0}
+    - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.72615
+      objectReference: {fileID: 0}
     - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.00023203
       objectReference: {fileID: 0}
     - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -2.9425
       objectReference: {fileID: 0}
     - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -843,10 +867,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 64376647454103846, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4741909749705283782, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 7722780934556151001, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+      propertyPath: _barrel
+      value: 
+      objectReference: {fileID: 278028711}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
