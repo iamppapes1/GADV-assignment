@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &278028711 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6155156251769414424, guid: c8b2e61f992ffba48bd53408119520a8, type: 3}
-  m_PrefabInstance: {fileID: 4365342749491794215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &329934861
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,6 +551,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.405135, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1357627352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6252863281130973823, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
+  m_PrefabInstance: {fileID: 5322311638535677279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378051429
 GameObject:
   m_ObjectHideFlags: 0
@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 7722780934556151001, guid: c94d214dd1a60f0489e3b65589fc79bb, type: 3}
       propertyPath: _barrel
       value: 
-      objectReference: {fileID: 278028711}
+      objectReference: {fileID: 1357627352}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
