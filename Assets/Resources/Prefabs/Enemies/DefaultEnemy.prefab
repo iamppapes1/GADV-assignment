@@ -199,6 +199,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   _maxHealth: 100
+  HealthScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 50
+      inSlope: 4.63082
+      outSlope: 4.63082
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.29471835
+    - serializedVersion: 3
+      time: 36.159054
+      value: 207.46437
+      inSlope: 5.505021
+      outSlope: 5.505021
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 74.53583
+      value: 466.29486
+      inSlope: 10.625112
+      outSlope: 10.625112
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.22749248
+    - serializedVersion: 3
+      time: 100
+      value: 1000
+      inSlope: 34.738235
+      outSlope: 34.738235
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03153984
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &2804312070419514786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +254,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Damage
   _damage: 10
+  DamageScale:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: 2.5383306
+      outSlope: 2.5383306
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.21156949
+    - serializedVersion: 3
+      time: 100
+      value: 500
+      inSlope: 11.603762
+      outSlope: 11.603762
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.032467466
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &6848063943281979990
 MonoBehaviour:
   m_ObjectHideFlags: 0

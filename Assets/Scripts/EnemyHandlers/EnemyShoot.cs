@@ -5,11 +5,7 @@ public class EnemyShoot : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyBullet;
     public GameObject _barrel;
-
-    void Awake()
-    {
-
-    }
+    
     void Start()
     {   
         Coroutine coroutine = StartCoroutine(Fire());

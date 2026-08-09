@@ -3,11 +3,22 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float _maxHealth = 100f;
+
+    [SerializeField] private AnimationCurve HealthScale;
+    
     private float _health = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    void Start()
     {
-        _health = _maxHealth;
+        if (gameObject.CompareTag("Enemy"))
+        {
+            var wave = GameManager.Instance.Wave;
+            Init(HealthScale.Evaluate(wave));
+        }
+        else if (gameObject.CompareTag("Player"))
+        {
+            _health = _maxHealth;
+        }
     }
 
     //Mainly for enemy spawning

@@ -14,6 +14,7 @@ public class PlaneShoot : MonoBehaviour
     {   
         Coroutine coroutine = StartCoroutine(Fire());
     }
+
     IEnumerator Fire()
     {   
         while (true)
