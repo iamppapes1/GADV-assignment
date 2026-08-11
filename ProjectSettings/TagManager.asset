@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Damage Upgrade
+  - Firerate Upgrade
+  - Health Upgrade
   layers:
   - Default
   - TransparentFX

@@ -1,16 +1,15 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameInitialize : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector2 _Min = new Vector2(-2.8f, 4f);
+    private Vector2 _Max = new Vector2(2.8f, 4f);
+    private GameObject[] _Enemies;
+
     void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

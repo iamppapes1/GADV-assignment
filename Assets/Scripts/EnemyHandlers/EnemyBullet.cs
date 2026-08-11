@@ -12,7 +12,7 @@ public class EnemyBullet : MonoBehaviour
 
     void Start()
     {
-        _rb.AddForce(Vector2.down * 10);
+        _rb.AddForce(Vector2.down * 50);
     }
 
     public void Init(float damage)
@@ -24,9 +24,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit player");
-            PlaneMain plane = other.GetComponent<PlaneMain>();
-            plane.TakeDamage(_damage);
+            other.GetComponent<Health>().Damage(_damage);
             Destroy(gameObject);
         }
         
