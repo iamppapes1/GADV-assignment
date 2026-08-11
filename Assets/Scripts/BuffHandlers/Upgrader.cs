@@ -11,15 +11,13 @@ public class Upgrader : MonoBehaviour
 
     void Start()
     {
-        _rb.AddForce(Vector2.down * 50);
+        _rb.AddForce(Vector2.down * 25);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(gameObject.tag);
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit player");
             if (gameObject.CompareTag("Damage Upgrade"))
             {
                 Damage stat = other.GetComponent<Damage>();

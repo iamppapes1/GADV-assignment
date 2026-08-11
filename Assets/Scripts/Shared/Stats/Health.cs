@@ -30,8 +30,8 @@ public class Health : MonoBehaviour
 
     public void Upgrade()
     {
-        _maxHealth *= 1.05f;
-        _health *= 1.05f;
+        _maxHealth *= 1.1f;
+        _health *= 1.1f;
     }
 
     public void Damage(float value)

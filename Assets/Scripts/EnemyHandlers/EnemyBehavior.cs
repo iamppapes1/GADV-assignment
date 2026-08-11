@@ -1,16 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Rigidbody2D _rb;
+    [SerializeField] float _speed = 5f;
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.AddForce(Vector2.down * _speed);
     }
 }

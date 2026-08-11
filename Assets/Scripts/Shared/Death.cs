@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class Death : MonoBehaviour
 {
     private GameObject[] _upgrades;
+    public event Action<Death> OnEnemyDeath;
 
     void Awake()
     {
@@ -10,14 +12,15 @@ public class Death : MonoBehaviour
     }
     public void OnDeath()
     {
-        Debug.Log($"dieded {gameObject.tag}");
-
         if (gameObject.CompareTag("Enemy"))
         {
-            GameObject clone = Instantiate(_upgrades[Random.Range(1,_upgrades.Length)],
+            GameObject clone = Instantiate(_upgrades[UnityEngine.Random.Range(0, _upgrades.Length)],
             gameObject.transform
             );
             clone.transform.parent = null;
+
+            GameManager.Instance.AddScore(10);
+            OnEnemyDeath.Invoke(this);
         }
 
          Destroy(gameObject);

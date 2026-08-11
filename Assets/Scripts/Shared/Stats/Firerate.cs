@@ -6,7 +6,15 @@ public class Firerate : MonoBehaviour
 
     public void Upgrade()
     {
-        _firerate *= 0.95f;
+        if (_firerate > 0.05f)
+        {
+            _firerate *= 0.95f;
+        }
+        if (_firerate < 0.05f)
+        {
+            _firerate = 0.05f;
+        }
+            
     }
 
     public float Get()

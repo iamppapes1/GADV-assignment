@@ -19,8 +19,6 @@ public class PlaneShoot : MonoBehaviour
     {   
         while (true)
         {   
-            Debug.Log("Shoot");
-
             GameObject clone = Instantiate(
                 _bullet[gameObject.GetComponent<BulletCount>().Get() - 1],
                 _barrel.transform

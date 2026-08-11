@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.Mathematics;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -7,32 +8,58 @@ public class WaveSpawner : MonoBehaviour
     private Vector2 _Max = new Vector2(2.8f, 4f);
     private GameObject[] _Enemies;
 
+     [SerializeField] private AnimationCurve WaveDesign;
+
     private Coroutine Spawner;
+
+    private int _aliveCount = 0;
+
+    private bool _spawning = true;
 
     void Start()
     {
         _Enemies = Resources.LoadAll<GameObject>("Prefabs/Enemies");
         Spawner =  StartCoroutine(SpawnEnemies());
-        StopCoroutine(Spawner);
     }
 
     // Update is called once per frame
     IEnumerator SpawnEnemies()
     {
-        while (true)
+        _spawning = true;
+        var wave = GameManager.Instance.Wave;
+        float evaluate = WaveDesign.Evaluate(wave);
+        for (int i = 0; i <= math.round(evaluate); i++)
         {
-            float spawnLocation = Random.Range(-2.8f, 2.8f);
-            GameObject randomEnemy = _Enemies[Random.Range(0, _Enemies.Length - 1)];
+            float spawnLocation = UnityEngine.Random.Range(-2.8f, 2.8f);
+            GameObject randomEnemy = _Enemies[UnityEngine.Random.Range(0, _Enemies.Length)];        
 
             GameObject Enemy = Instantiate(
                 randomEnemy,
                 new Vector2(spawnLocation, 4f),
                 randomEnemy.transform.rotation
             );
+            
+            Enemy.GetComponent<Death>().OnEnemyDeath += DiedEvent;
+            _aliveCount++;
 
-            Debug.Log("Spawned");
+            yield return new WaitForSeconds(0.5f);
+        }
+        
+        _spawning = false;
+        StopCoroutine(Spawner);
+    }
 
-            yield return new WaitForSeconds(1);
+    void DiedEvent(Death Instance)
+    {
+        _aliveCount--;
+        Instance.OnEnemyDeath -= DiedEvent;
+        Debug.Log(_aliveCount);
+        Debug.Log(_spawning);
+        Debug.Log(_aliveCount <= 0 && !_spawning);
+        if (_aliveCount <= 0 && !_spawning)
+        {
+            GameManager.Instance.NextWave();
+            Spawner = StartCoroutine(SpawnEnemies());
         }
     }
 }

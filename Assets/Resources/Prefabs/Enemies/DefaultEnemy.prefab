@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7538471456358873147}
   - component: {fileID: 2804312070419514786}
   - component: {fileID: 6848063943281979990}
+  - component: {fileID: 8923008572867255330}
   m_Layer: 0
   m_Name: DefaultEnemy
   m_TagString: Enemy
@@ -205,38 +206,38 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 50
-      inSlope: 4.63082
-      outSlope: 4.63082
+      inSlope: 15.022731
+      outSlope: 15.022731
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.29471835
+      outWeight: 0.14658871
     - serializedVersion: 3
-      time: 36.159054
-      value: 207.46437
-      inSlope: 5.505021
-      outSlope: 5.505021
+      time: 36.71008
+      value: 408.13034
+      inSlope: 6.943489
+      outSlope: 6.943489
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.14573845
     - serializedVersion: 3
-      time: 74.53583
-      value: 466.29486
-      inSlope: 10.625112
-      outSlope: 10.625112
+      time: 69.39298
+      value: 659.72974
+      inSlope: 8.569983
+      outSlope: 8.569983
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.13335072
       outWeight: 0.22749248
     - serializedVersion: 3
       time: 100
       value: 1000
-      inSlope: 34.738235
-      outSlope: 34.738235
+      inSlope: 13.821356
+      outSlope: 13.821356
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03153984
+      inWeight: 0.14187561
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -260,12 +261,30 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 10
-      inSlope: 2.5383306
-      outSlope: 2.5383306
+      inSlope: 4.9860044
+      outSlope: 4.9860044
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.21156949
+      outWeight: 0.23410478
+    - serializedVersion: 3
+      time: 22.968191
+      value: 105.96357
+      inSlope: 3.9149318
+      outSlope: 3.9149318
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.12832946
+    - serializedVersion: 3
+      time: 59.315754
+      value: 243.25122
+      inSlope: 3.851492
+      outSlope: 3.851492
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 100
       value: 500
@@ -290,6 +309,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879be705cbec28749969b50fafd78d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Death
+--- !u!114 &8923008572867255330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459603972544558456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98c48766cb90d042aef1c5e79a054b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBehavior
+  _speed: 5
 --- !u!1 &6155156251769414424
 GameObject:
   m_ObjectHideFlags: 0

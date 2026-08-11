@@ -13,7 +13,7 @@ public class DamageUpgrade : MonoBehaviour
 
     void Start()
     {
-        _rb.AddForce(Vector2.down * 10);
+        _rb.AddForce(Vector2.down * 5);
     }
 
     void OnTriggerEnter2D(Collider2D other)

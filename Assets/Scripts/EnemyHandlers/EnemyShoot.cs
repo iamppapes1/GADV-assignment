@@ -21,7 +21,7 @@ public class EnemyShoot : MonoBehaviour
             clone.transform.parent = null;
             EnemyBullet bullet = clone.GetComponent<EnemyBullet>();
             bullet.Init(gameObject.GetComponent<Damage>().Get());
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(10f);
         }
     }
 }

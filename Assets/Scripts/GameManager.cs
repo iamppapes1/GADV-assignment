@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         Score += amount;
+        ScoreUIUpdate.ScoreChange.Invoke();
     }
 
     public void NextWave()
