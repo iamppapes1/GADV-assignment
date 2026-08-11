@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class WaveUIUpdate : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static Action ScoreChange;
+
+    private TextMeshProUGUI _text;
+
+    void Awake()
     {
-        
+        _text = GetComponent<TextMeshProUGUI>();
+        ScoreChange += UpdateUI;
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdateUI()
     {
-        
+        var score = GameManager.Instance.Score;
+        _text.text = "Score: " + score;
     }
 }
