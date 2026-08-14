@@ -24,6 +24,6 @@ public class StatUIUpdate : MonoBehaviour
 
     private void UpdateUI()
     {
-        _text.text = $"Stats:\nMax Health: {_plane.GetComponent<Health>().GetMaxHealth()}\nDamage: {_plane.GetComponent<Damage>().Get()}\nFirerate: {_plane.GetComponent<Firerate>().Get()}\nBullets:{_plane.GetComponent<BulletCount>().Get()}";
+        _text.text = $"Stats:\nMax Health: {_plane.GetComponent<Health>().GetMaxHealth()}\nDamage: {_plane.GetComponent<Damage>().Get()}\nFirerate: {60/_plane.GetComponent<Firerate>().Get()} RP/M\nBullets: {_plane.GetComponent<BulletCount>().Get()}";
     }
 }
