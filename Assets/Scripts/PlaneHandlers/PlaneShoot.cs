@@ -15,10 +15,17 @@ public class PlaneShoot : MonoBehaviour
         Coroutine coroutine = StartCoroutine(Fire());
     }
 
+    /*Makes the plane shoot. The cooldown is determined by the firerate component on the plane.
+    the bullets variable is there so I can make the plane shoot more bullets by using 5 prefabs instead of
+    using complex math to calculate where bullets should be placed*/
     IEnumerator Fire()
     {   
         while (true)
         {   
+            if (GameManager.Instance.State == GameState.Dead)
+            {
+                break;
+            }
             GameObject clone = Instantiate(
                 _bullet[gameObject.GetComponent<BulletCount>().Get() - 1],
                 _barrel.transform

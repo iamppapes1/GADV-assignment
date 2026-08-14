@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -8,8 +9,14 @@ public class EnemyBullet : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(Depsawn());
     }
 
+    IEnumerator Depsawn()
+    {
+        yield return new WaitForSeconds(30);
+        Destroy(gameObject);
+    }
     void Start()
     {
         _rb.AddForce(Vector2.down * 50);

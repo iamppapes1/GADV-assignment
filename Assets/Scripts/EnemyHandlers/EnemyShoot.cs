@@ -10,10 +10,17 @@ public class EnemyShoot : MonoBehaviour
     {   
         Coroutine coroutine = StartCoroutine(Fire());
     }
+
+    //Makes the enemy shoot. Fixed cooldown of 10 seconds as anything lower would cause the game to be unfair at later waves.
     IEnumerator Fire()
     {   
         while (true)
         {   
+            if (GameManager.Instance.State == GameState.Dead)
+            {
+                break;
+            }
+
             GameObject clone = Instantiate(
                 _enemyBullet,
                 _barrel.transform

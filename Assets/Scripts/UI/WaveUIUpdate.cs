@@ -14,6 +14,11 @@ public class WaveUIUpdate : MonoBehaviour
         WaveChange += UpdateUI;
     }
 
+    void OnDestroy()
+    {
+        WaveChange -= UpdateUI;
+    }
+
     void Start()
     {
         UpdateUI();

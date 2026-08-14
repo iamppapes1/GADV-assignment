@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlaneBullet : MonoBehaviour
@@ -8,6 +9,13 @@ public class PlaneBullet : MonoBehaviour
     void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
+        StartCoroutine(Depsawn());
+    }
+
+    IEnumerator Depsawn()
+    {
+        yield return new WaitForSeconds(30);
+        Destroy(gameObject);
     }
 
     void Start()

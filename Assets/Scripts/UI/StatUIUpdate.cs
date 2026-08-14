@@ -17,11 +17,17 @@ public class StatUIUpdate : MonoBehaviour
         UpgradeEvent += UpdateUI;
     }
 
+    void OnDestroy()
+    {
+        UpgradeEvent -= UpdateUI;
+    }
+
     private void Start()
     {
         UpdateUI();
     }
 
+    //Whenever any of the stat upgrades, update the UI to display the updated stats.
     private void UpdateUI()
     {
         _text.text = $"Stats:\nMax Health: {_plane.GetComponent<Health>().GetMaxHealth()}\nDamage: {_plane.GetComponent<Damage>().Get()}\nFirerate: {60/_plane.GetComponent<Firerate>().Get()} RP/M\nBullets: {_plane.GetComponent<BulletCount>().Get()}";

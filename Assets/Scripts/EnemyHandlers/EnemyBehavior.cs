@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -9,5 +9,13 @@ public class EnemyBehavior : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _rb.AddForce(Vector2.down * _speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D Instance)
+    {
+        if (Instance.gameObject.CompareTag("Player"))
+        {
+            Instance.gameObject.GetComponent<Health>().Damage(math.INFINITY);
+        }
     }
 }

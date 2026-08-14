@@ -18,11 +18,14 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        /*Makes enemies scalable, auto add into the game when I add more enemies
+        It also allows the use of another list to design the addition of more enemies into the spawn pool*/
         _Enemies = Resources.LoadAll<GameObject>("Prefabs/Enemies");
         Spawner =  StartCoroutine(SpawnEnemies());
     }
 
-    // Update is called once per frame
+    /* Spawns enemies. The amount of enemies is determined by a AnimationCurv, 
+    which also allows easy wave scaling of enemies to spawn.*/
     IEnumerator SpawnEnemies()
     {
         _spawning = true;
@@ -30,6 +33,11 @@ public class WaveSpawner : MonoBehaviour
         float evaluate = WaveDesign.Evaluate(wave);
         for (int i = 0; i <= math.round(evaluate); i++)
         {
+            if (GameManager.Instance.State == GameState.Dead)
+            {
+                break;
+            }
+            
             float spawnLocation = UnityEngine.Random.Range(-2.8f, 2.8f);
             GameObject randomEnemy = _Enemies[UnityEngine.Random.Range(0, _Enemies.Length)];        
 

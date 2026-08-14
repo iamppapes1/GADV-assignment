@@ -14,6 +14,11 @@ public class ScoreUIUpdate : MonoBehaviour
         ScoreChange += UpdateUI;
     }
 
+    void OnDestroy()
+    {
+        ScoreChange -= UpdateUI;
+    }
+
     void Start()
     {
         UpdateUI();
