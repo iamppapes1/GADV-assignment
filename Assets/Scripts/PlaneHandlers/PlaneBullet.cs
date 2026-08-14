@@ -28,6 +28,8 @@ public class PlaneBullet : MonoBehaviour
         _damage = damage;
     }
 
+    /*Check if it's an enemy. If it is, get their health component
+    and call the Damage method. Damage is taken from the plane's Damage component*/
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Enemy"))

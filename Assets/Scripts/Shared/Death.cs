@@ -15,7 +15,9 @@ public class Death : MonoBehaviour
 
     /*Checks if the gameObject the component is attached to is a enemy or player.
     If it's a player, send a event that tells the game that game is over and that the player lost
-    If it's an enemy, 20% change that spawns an upgrade prefab*/
+    If it's an enemy, 20% change that spawns an upgrade prefab
+    Also fires 2 actions, one that tells the GameManager that an enemy died and we should add to the player's score
+    and the other tells the WaveSpawner to deduct from the alive count so that it can spawn another wave when it's eventually 0*/
     public void OnDeath()
     {
         if (gameObject.CompareTag("Enemy"))

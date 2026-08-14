@@ -57,6 +57,9 @@ public class WaveSpawner : MonoBehaviour
         StopCoroutine(Spawner);
     }
 
+    /*Whenever an enemy spawns, aliveCount gets incremented by 1.
+    When an enemy dies, decrement the value by 1, check if the count is 0.
+    If it is, start the next wave of enemies*/
     void DiedEvent(Death Instance)
     {
         Instance.OnEnemyDeath -= DiedEvent;

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class EnemyBullet : MonoBehaviour
         _damage = damage;
     }
 
+    /*Check if it's the player. If it is, get their health component
+    and call the Damage method. Damage is taken from the enemy's Damage component,
+    which is scaled with a AnimationCurve*/
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
