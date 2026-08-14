@@ -1,5 +1,3 @@
-using UnityEditor;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class FirerateUpgrade : MonoBehaviour

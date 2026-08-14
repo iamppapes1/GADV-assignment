@@ -1,20 +1,27 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class WaveUIUpdate : MonoBehaviour
 {
-    public static Action ScoreChange;
+    public static Action WaveChange;
 
     private TextMeshProUGUI _text;
 
     void Awake()
     {
         _text = GetComponent<TextMeshProUGUI>();
-        ScoreChange += UpdateUI;
+        WaveChange += UpdateUI;
+    }
+
+    void Start()
+    {
+        UpdateUI();
     }
 
     void UpdateUI()
     {
-        var score = GameManager.Instance.Score;
-        _text.text = "Score: " + score;
+        var wave = GameManager.Instance.Wave;
+        _text.text = "Wave: " + wave;
     }
 }

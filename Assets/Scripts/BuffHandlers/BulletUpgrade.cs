@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class DamageUpgrade : MonoBehaviour
+public class BulletUpgrade : MonoBehaviour
 {
-    private Rigidbody2D _rb;
+    [SerializeField] private Rigidbody2D _rb;
 
     void Awake()
     {
@@ -11,7 +11,7 @@ public class DamageUpgrade : MonoBehaviour
 
     void Start()
     {
-        _rb.AddForce(Vector2.down * 5);
+        _rb.AddForce(Vector2.down * 10);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -19,7 +19,7 @@ public class DamageUpgrade : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit player");
-            other.GetComponent<Damage>().Upgrade();
+            other.GetComponent<BulletCount>().Upgrade();
             Destroy(gameObject);
         }
 

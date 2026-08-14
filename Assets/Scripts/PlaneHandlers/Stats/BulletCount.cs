@@ -10,6 +10,7 @@ public class BulletCount : MonoBehaviour
         {
             _bullets++;
         }
+        StatUIUpdate.UpgradeEvent.Invoke();
     }
 
     public int Get()

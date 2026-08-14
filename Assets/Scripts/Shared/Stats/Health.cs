@@ -7,8 +7,8 @@ public class Health : MonoBehaviour
     [SerializeField] private AnimationCurve HealthScale;
     
     private float _health = 0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
         if (gameObject.CompareTag("Enemy"))
         {
@@ -32,11 +32,22 @@ public class Health : MonoBehaviour
     {
         _maxHealth *= 1.1f;
         _health *= 1.1f;
+        
+        if (gameObject.CompareTag("Player"))
+        {
+            StatUIUpdate.UpgradeEvent.Invoke();
+            HealthUIUpdate.HealthChange.Invoke();
+        }
     }
 
     public void Damage(float value)
     {
         _health -= value;
+
+        if (gameObject.CompareTag("Player"))
+        {
+            HealthUIUpdate.HealthChange.Invoke();
+        }
 
         if (_health <= 0)
         {
@@ -44,15 +55,20 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Heal(float value)
+    public void Heal()
     {
-        if (_health + value > _maxHealth)
+        if (_health * 1.1f > _maxHealth)
         {
             _health = _maxHealth;
         }
         else
         {
-            _health += value;
+            _health *= 1.1f;
+        }
+
+        if (gameObject.CompareTag("Player"))
+        {
+            HealthUIUpdate.HealthChange.Invoke();
         }
     }
 

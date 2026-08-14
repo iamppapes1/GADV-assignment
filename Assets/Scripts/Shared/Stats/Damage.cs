@@ -24,6 +24,7 @@ public class Damage : MonoBehaviour
     public void Upgrade()
     {
         _damage *= 1.10f;
+        StatUIUpdate.UpgradeEvent.Invoke();
     }
 
     public float Get()

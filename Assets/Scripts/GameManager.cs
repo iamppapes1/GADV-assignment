@@ -27,5 +27,6 @@ public class GameManager : MonoBehaviour
     public void NextWave()
     {
         Wave++;
+        WaveUIUpdate.WaveChange.Invoke();
     }
 }

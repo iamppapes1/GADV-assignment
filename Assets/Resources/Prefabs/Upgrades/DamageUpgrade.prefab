@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8367146251582091066}
   - component: {fileID: 2760946399061864896}
   - component: {fileID: 3132843408210612561}
-  - component: {fileID: -6470165840955491496}
+  - component: {fileID: 3097669921606118223}
   m_Layer: 0
   m_Name: DamageUpgrade
   m_TagString: Damage Upgrade
@@ -159,7 +159,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &-6470165840955491496
+--- !u!114 &3097669921606118223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,6 +168,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 4880667047577749465}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ff695770b32974ba8fb7efddd8ea8b, type: 3}
+  m_Script: {fileID: 11500000, guid: f1abd98d081694f4d9eb233f20e025cd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Upgrader
+  m_EditorClassIdentifier: Assembly-CSharp::DamageUpgrade

@@ -1,0 +1,29 @@
+using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.Events;
+
+public class StatUIUpdate : MonoBehaviour
+{
+    public static Action UpgradeEvent;
+
+    [SerializeField] private TextMeshProUGUI _text;
+
+    [SerializeField] private GameObject _plane;
+
+    private void Awake()
+    {
+        _text = GetComponent<TextMeshProUGUI>();
+        UpgradeEvent += UpdateUI;
+    }
+
+    private void Start()
+    {
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        _text.text = $"Stats:\nMax Health: {_plane.GetComponent<Health>().GetMaxHealth()}\nDamage: {_plane.GetComponent<Damage>().Get()}\nFirerate: {_plane.GetComponent<Firerate>().Get()}\nBullets:{_plane.GetComponent<BulletCount>().Get()}";
+    }
+}

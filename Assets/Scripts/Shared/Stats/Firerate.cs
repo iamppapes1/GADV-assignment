@@ -8,13 +8,13 @@ public class Firerate : MonoBehaviour
     {
         if (_firerate > 0.05f)
         {
-            _firerate *= 0.95f;
+            _firerate *= 0.9f;
         }
         if (_firerate < 0.05f)
         {
             _firerate = 0.05f;
         }
-            
+        StatUIUpdate.UpgradeEvent.Invoke();
     }
 
     public float Get()

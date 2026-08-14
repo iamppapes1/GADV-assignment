@@ -51,11 +51,8 @@ public class WaveSpawner : MonoBehaviour
 
     void DiedEvent(Death Instance)
     {
-        _aliveCount--;
         Instance.OnEnemyDeath -= DiedEvent;
-        Debug.Log(_aliveCount);
-        Debug.Log(_spawning);
-        Debug.Log(_aliveCount <= 0 && !_spawning);
+        _aliveCount--;
         if (_aliveCount <= 0 && !_spawning)
         {
             GameManager.Instance.NextWave();

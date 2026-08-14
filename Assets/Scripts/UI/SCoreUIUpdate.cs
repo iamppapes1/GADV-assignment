@@ -14,6 +14,11 @@ public class ScoreUIUpdate : MonoBehaviour
         ScoreChange += UpdateUI;
     }
 
+    void Start()
+    {
+        UpdateUI();
+    }
+
     void UpdateUI()
     {
         var score = GameManager.Instance.Score;
