@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public int Wave { get; private set; } = 1;
     public float Score { get; private set; } = 0f;
 
+    [SerializeField] private GameObject _plane;
+
     public void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,6 +29,7 @@ public class GameManager : MonoBehaviour
     public void NextWave()
     {
         Wave++;
+        _plane.GetComponent<Health>().Heal();
         WaveUIUpdate.WaveChange.Invoke();
     }
 }

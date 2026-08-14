@@ -8,7 +8,7 @@ public class WaveSpawner : MonoBehaviour
     private Vector2 _Max = new Vector2(2.8f, 4f);
     private GameObject[] _Enemies;
 
-     [SerializeField] private AnimationCurve WaveDesign;
+    [SerializeField] private AnimationCurve WaveDesign;
 
     private Coroutine Spawner;
 
