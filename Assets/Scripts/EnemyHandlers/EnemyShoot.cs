@@ -17,13 +17,8 @@ public class EnemyShoot : MonoBehaviour
     IEnumerator Fire()
     {   
         yield return new WaitForSeconds(1);
-        while (true)
-        {   
-            if (GameManager.Instance.State == GameState.Dead)
-            {
-                break;
-            }
-
+        while (GameManager.Instance.State == GameState.Playing)
+        {
             GameObject clone = Instantiate(
                 _enemyBullet,
                 _barrel.transform

@@ -12,5 +12,6 @@ public class GameOverScreenHandling : MonoBehaviour
     public void ToMain()
     {
         SceneManager.LoadScene("Main Menu");
+        Time.timeScale = 1;
     }
 }

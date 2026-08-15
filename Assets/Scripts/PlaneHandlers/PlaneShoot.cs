@@ -23,12 +23,8 @@ public class PlaneShoot : MonoBehaviour
     using complex math to calculate where bullets should be placed*/
     IEnumerator Fire()
     {   
-        while (true)
+        while (GameManager.Instance.State == GameState.Playing)
         {   
-            if (GameManager.Instance.State == GameState.Dead)
-            {
-                break;
-            }
             GameObject clone = Instantiate(
                 _bullet[gameObject.GetComponent<BulletCount>().Get() - 1],
                 _barrel.transform

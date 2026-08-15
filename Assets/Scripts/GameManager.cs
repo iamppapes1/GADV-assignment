@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public enum GameState
 {
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _plane;
 
     /*To reference the current instance that is within the scene.
-    Prevents any duping of this class and to prevent data not deleting*/
+    Prevents any duping of this class and to prevent data not deleting, especially when the scene reloads*/
     public void Awake()
     {
         if (Instance != null && Instance != this)
@@ -30,9 +31,25 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        StartCoroutine(RunTimeScore());
+    }
+
+    //Because the static will retain the data in memory, so this will remove it from memory to prevent random errors from appearing
     void OnDestroy()
     {
         _plane = null;
+    }
+
+    IEnumerator RunTimeScore()
+    {
+        while (State == GameState.Playing)
+        {
+            yield return new WaitForSeconds(0.1f);
+            AddScore(1);
+        }
+        
     }
 
     public void AddScore(int amount)
