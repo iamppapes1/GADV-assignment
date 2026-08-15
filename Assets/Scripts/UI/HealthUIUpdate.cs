@@ -6,14 +6,14 @@ public class HealthUIUpdate : MonoBehaviour
     public static Action HealthChange;
 
     private RectTransform _rectTransform;
-    [SerializeField] GameObject _plane;
+    private float _old = 0f;
+    [SerializeField] private GameObject _plane;
+    [SerializeField] private AudioSource _damageSound;
 
     void Awake()
     {
         HealthChange += UpdateUI;
         _rectTransform = GetComponent<RectTransform>();
-        //In-case LoadScene breaks the initialisation from inspector
-        _plane = GameObject.FindWithTag("Player");
     }
 
     void OnDestroy()
@@ -38,6 +38,13 @@ public class HealthUIUpdate : MonoBehaviour
         {
             scale = 0;
         }
+
+        if (scale < _old)
+        {
+            _damageSound.Play();
+        }
+
+        _old = scale;
 
         _rectTransform.localScale = new Vector3(scale, 1, 0);
     }

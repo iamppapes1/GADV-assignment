@@ -1,16 +1,21 @@
-using System;
 using UnityEngine;
 
 public class Death : MonoBehaviour
 {
     private GameObject[] _upgrades;
-    public event Action<Death> OnEnemyDeath;
 
     private bool PlayerDead = false;
+
+    [SerializeField] private AudioSource _deathSound;
 
     void Awake()
     {
         _upgrades = Resources.LoadAll<GameObject>("Prefabs/Upgrades");
+    }
+
+    void OnDestroy()
+    {
+        WaveSpawner.OnEnemyDeath.Invoke();
     }
 
     /*Checks if the gameObject the component is attached to is a enemy or player.
@@ -25,19 +30,22 @@ public class Death : MonoBehaviour
             if (UnityEngine.Random.value < 0.2f)
             {
                 GameObject clone = Instantiate(_upgrades[UnityEngine.Random.Range(0, _upgrades.Length)],
-                gameObject.transform
+                gameObject.transform.position,
+                Quaternion.identity,
+                null
                 );
-                clone.transform.parent = null;
             }
             
             GameManager.Instance.AddScore(10);
-            OnEnemyDeath.Invoke(this);
+            _deathSound.Play();
+            AudioSource.PlayClipAtPoint(_deathSound.clip, transform.position);
             Destroy(gameObject);
         }
         if (gameObject.CompareTag("Player"))
         {
             if (!PlayerDead)
             {
+                _deathSound.Play();
                 GameManager.Instance.SetState(GameState.Dead);
                 GameOverScript.OnPlayerDeath.Invoke();
                 PlayerDead = true;

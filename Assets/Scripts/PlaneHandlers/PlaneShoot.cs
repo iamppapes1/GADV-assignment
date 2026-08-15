@@ -1,10 +1,13 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class PlaneShoot : MonoBehaviour
 {
     private GameObject[] _bullet;
     public GameObject _barrel;
+
+    [SerializeField] private AudioSource _shootSound;
 
     void Awake()
     {
@@ -36,6 +39,8 @@ public class PlaneShoot : MonoBehaviour
             {
                 bullet.Init(gameObject.GetComponent<Damage>().Get());
             }
+
+            _shootSound.Play();
 
             yield return new WaitForSeconds(gameObject.GetComponent<Firerate>().Get());
         }

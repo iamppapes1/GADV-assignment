@@ -12,7 +12,7 @@ public class DamageUpgrade : MonoBehaviour
 
     void Start()
     {
-        _rb.AddForce(Vector2.down * 5);
+        _rb.AddForce(Vector2.down * 10);
     }
 
     //When collided with plane, get its respective component with the upgrade type, call the Upgrade method within the component

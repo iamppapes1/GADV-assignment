@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using Unity.Mathematics;
+using System;
 
 public class WaveSpawner : MonoBehaviour
 {
     private Vector2 _Min = new Vector2(-2.8f, 4f);
     private Vector2 _Max = new Vector2(2.8f, 4f);
     private GameObject[] _Enemies;
+
+    public static Action OnEnemyDeath;
 
     [SerializeField] private AnimationCurve WaveDesign;
 
@@ -22,6 +25,12 @@ public class WaveSpawner : MonoBehaviour
         It also allows the use of another list to design the addition of more enemies into the spawn pool*/
         _Enemies = Resources.LoadAll<GameObject>("Prefabs/Enemies");
         Spawner =  StartCoroutine(SpawnEnemies());
+        OnEnemyDeath += DiedEvent;
+    }
+
+    void OnDestroy()
+    {
+        OnEnemyDeath -= DiedEvent;
     }
 
     /* Spawns enemies. The amount of enemies is determined by a AnimationCurv, 
@@ -47,7 +56,6 @@ public class WaveSpawner : MonoBehaviour
                 randomEnemy.transform.rotation
             );
             
-            Enemy.GetComponent<Death>().OnEnemyDeath += DiedEvent;
             _aliveCount++;
 
             yield return new WaitForSeconds(0.5f);
@@ -60,9 +68,8 @@ public class WaveSpawner : MonoBehaviour
     /*Whenever an enemy spawns, aliveCount gets incremented by 1.
     When an enemy dies, decrement the value by 1, check if the count is 0.
     If it is, start the next wave of enemies*/
-    void DiedEvent(Death Instance)
+    void DiedEvent()
     {
-        Instance.OnEnemyDeath -= DiedEvent;
         _aliveCount--;
         if (_aliveCount <= 0 && !_spawning)
         {

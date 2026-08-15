@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    void OnDestroy()
+    {
+        _plane = null;
+    }
+
     public void AddScore(int amount)
     {
         Score += amount;
