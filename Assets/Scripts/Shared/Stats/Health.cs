@@ -43,6 +43,9 @@ public class Health : MonoBehaviour
         }
     }
 
+    /*Damages the enemy/player. Whenever this method is called, tell the UI if any changes were made
+    If the health drops below 0, get the Death component which handles enemy/player death.
+    The sprite area is to add responsiveness to the game, to show that the bullet hit the enemy*/
     public async Task Damage(float value)
     {
         _health -= value;
