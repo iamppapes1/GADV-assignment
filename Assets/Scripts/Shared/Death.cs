@@ -15,7 +15,10 @@ public class Death : MonoBehaviour
 
     void OnDestroy()
     {
-        WaveSpawner.OnEnemyDeath.Invoke();
+        if (GameManager.Instance.State != GameState.Dead)
+        {
+            WaveSpawner.OnEnemyDeath.Invoke();
+        }
     }
 
     /*Checks if the gameObject the component is attached to is a enemy or player.

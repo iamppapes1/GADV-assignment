@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -5,6 +6,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float _maxHealth = 100f;
 
     [SerializeField] private AnimationCurve HealthScale;
+    [SerializeField] private Sprite _damagedSprite;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
     
     private float _health = 0f;
 
@@ -40,7 +43,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void Damage(float value)
+    public async Task Damage(float value)
     {
         _health -= value;
 
@@ -52,6 +55,14 @@ public class Health : MonoBehaviour
         if (_health <= 0)
         {
             gameObject.GetComponent<Death>().OnDeath();
+        }
+
+        var oldSprite = _spriteRenderer.sprite;
+        if (_damagedSprite != null)
+        {
+            _spriteRenderer.sprite = _damagedSprite;
+            await Awaitable.WaitForSecondsAsync(0.05f);
+            _spriteRenderer.sprite = oldSprite;
         }
     }
 

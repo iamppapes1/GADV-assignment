@@ -379,6 +379,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _damagedSprite: {fileID: 0}
+  _spriteRenderer: {fileID: 8611177682570758500}
 --- !u!114 &5782758639303930359
 MonoBehaviour:
   m_ObjectHideFlags: 0
